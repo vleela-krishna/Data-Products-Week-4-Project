@@ -1,0 +1,62 @@
+---
+title: "Data Products Course Week 4 Project - MTCars Data Set"
+author: "LeelaKrishna V"
+date: "05/08/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+This presentation is a part of deliverable required for Data Products Course week 4 project.
+
+The application demo built by Shiny and can be found at the URL:
+https://vleelakrishna.shinyapps.io/data-products-week-4-project/
+
+Source code is at GitHub for the application and presnetation at the URL:
+https://github.com/vleela-krishna/Data-Products-Week-4-Project
+
+## Web Application
+
+This web application calculates linear regression of different variables at MTCars data set. The application provides user with three different inputs:
+
+* Select first variable of the regression either:
+
+    + Mile per Gallon (mpg),
+    + or Horse Power (hp),
+  
+* Select second variable one of three: 
+
+    + Cylinders, 
+    + Transmission, 
+    + and Gears
+  
+* User can select if he\ she wants to show straight line representing linear prediction or not.
+
+
+## MTCars data set
+
+This is the data of MTCars Dataset with various columns where we build a linear regression model among variables across all data at the dataset.
+
+```{r mtcars, echo = TRUE}
+head(mtcars)
+```
+
+## Sample Layout of Linear Regression (mpg ~ cyl)
+
+```{r, echo=FALSE, message=FALSE}
+
+data("mtcars")
+ mtcars.cyl.formula <- mpg ~ cyl
+    mtcars.cyl.lm <- lm(formula=mtcars.cyl.formula, data=mtcars)
+     
+    
+    # draw the scatter diagram with the specified value of mpg
+      plot(mtcars.cyl.formula, data=mtcars)
+      abline(mtcars.cyl.lm,col="Red")
+```
+
+
